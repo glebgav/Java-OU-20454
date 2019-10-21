@@ -132,6 +132,7 @@ public class FoodItem {
     public boolean isCheaper(FoodItem other){
         return other.price > this.price;
     }
+
     public static void main(String[] args) {
         FoodItem food1 = new FoodItem("milk",141414141, 5, new Date(1,1,2000), new Date(5,5,2002), 35,60,5);
         System.out.println(food1.howManyItems(6));
