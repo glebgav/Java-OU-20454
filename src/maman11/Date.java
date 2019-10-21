@@ -10,7 +10,7 @@ public class Date {
         this.int_month = other.getMonth();
         this.int_year = other.getYear();
     }
-    private Date(int day, int month, int year){
+    public Date(int day, int month, int year){
         if(this.checkDate(day, month, year)){
             this.int_day = day;
             this.int_month = month;
@@ -22,6 +22,7 @@ public class Date {
             this.int_year = 2000;
         }
     }
+
     private boolean checkDate(int day, int month, int year){
         boolean res = true;
         if(year<0 || String.valueOf(year).length() != 4){
@@ -56,6 +57,7 @@ public class Date {
         }
         return res;
     }
+
     private boolean isInList(int[] arr, int month){
         boolean res = false;
         for (int value : arr) {
@@ -66,7 +68,8 @@ public class Date {
         }
         return res;
     }
-    private int calcDays(Date other) {
+
+    public int calcDays(Date other) {
         int sum = 0;
         int[] months = {31,28,31,30,31,30,31,31,30,31,30,31};
             if (this.after(other)) {
@@ -80,34 +83,42 @@ public class Date {
             }
         return sum;
     }
-    private int getDay() {
+
+    public int getDay() {
         return int_day;
     }
+
     public void setDay(int dayToSet) {
         if(checkDate(dayToSet, this.int_month,this.int_year)) {
             this.int_day = dayToSet;
         }
     }
-    private int getMonth() {
+
+    public int getMonth() {
         return int_month;
     }
+
     public void setMonth(int mountToSet) {
         if(checkDate(this.int_day, mountToSet,this.int_year)) {
             this.int_month = mountToSet;
         }
     }
-    private int getYear() {
+
+    public int getYear() {
         return int_year;
     }
+
     public void setYear(int yearToSet) {
         if(checkDate(this.int_day, this.int_month,yearToSet)) {
             this.int_year = yearToSet;
         }
     }
-    private boolean after(Date other){
+
+    public boolean after(Date other){
         return other.before(this);
     }
-    private boolean before(Date other){
+
+    public boolean before(Date other){
         boolean res = false;
         if(this.int_year < other.getYear()){
             res = true;
@@ -122,9 +133,9 @@ public class Date {
         }
         return res;
     }
-    private int difference(Date other){
+
+    public int difference(Date other){
         int sum = 0;
-        int[] months = {31,28,31,30,31,30,31,31,30,31,30,31};
         if(this.equals(other)){ return sum;}
         else if(this.getMonth() == other.getMonth()) {
             sum += Math.abs(this.getDay()-other.getDay()) +  (365*Math.abs(this.getYear()-other.getYear()));
@@ -147,13 +158,15 @@ public class Date {
         }
         return sum;
     }
-    private boolean equals(Date other){
+
+    public boolean equals(Date other){
         boolean res = true;
         if(this.int_day != other.getDay()){res= false;}
         if(this.int_month != other.getMonth()){res= false;}
         if(this.int_year != other.getYear()){res= false;}
         return res;
     }
+
     public Date tomorrow(){
         int[] monthswith31 = {1,3,5,7,8,10,12};
         int[] monthswith30 = {4,6,9,11};
@@ -187,6 +200,7 @@ public class Date {
         }
         return new Date(other_day,other_month,other_year);
     }
+
     public String toString() {
         return this.getDay() + " / " + this.getMonth() + " / " + this.getYear();
     }
