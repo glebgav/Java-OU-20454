@@ -1,13 +1,10 @@
 package maman11;
 
-
-import java.util.Arrays;
-
 public class Stock {
     private final int MAX_ITEMS = 100;
     private int _noOfItems;
     private FoodItem[] _stock;
-    private Stock(){
+    public Stock(){
         this._stock = new FoodItem[this.MAX_ITEMS];
         this._noOfItems = 0;
     }
@@ -191,22 +188,5 @@ public class Stock {
         }
         return new int[]{min, max};
     }
-
-    public static void main(String[] args) {
-        Stock sto = new Stock();
-        FoodItem food1 = new FoodItem("milk",18, 2, new Date(1,1,2000), new Date(5,5,2002), 1,4,5);
-        FoodItem food2 = new FoodItem("bread",14, 4, new Date(1,1,2004), new Date(5,5,2007), 36,60,66);
-        FoodItem food3 = new FoodItem("meat",16, 4, new Date(1,1,2004), new Date(5,5,2007), 5,6,10);
-        sto.addItem(food1);
-        sto.addItem(food2);
-        sto.addItem(food3);
-        System.out.println(Arrays.toString(sto._stock));
-        System.out.println(sto.order(8));
-        System.out.println(sto.howMany(20));
-        //sto.removeAfterDate(new Date(5,5,2000));
-        System.out.println(sto.getTempOfStock());
-        String[] items = {"milk","bread"};
-//        sto.updateStock(items);
-//        System.out.println(Arrays.toString(sto._stock));
-    }
 }
+

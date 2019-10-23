@@ -24,6 +24,7 @@ public class Date {
     }
 
     private boolean checkDate(int day, int month, int year){
+        // auxiliary method that check if the date parameters are legal.
         boolean res = true;
         if(year<0 || String.valueOf(year).length() != 4){
             res = false;
@@ -59,6 +60,7 @@ public class Date {
     }
 
     private boolean isInList(int[] arr, int month){
+        // // auxiliary method that check if a certain month is in the array of same length months.
         boolean res = false;
         for (int value : arr) {
             if (value == month) {
@@ -203,11 +205,5 @@ public class Date {
 
     public String toString() {
         return this.getDay() + " / " + this.getMonth() + " / " + this.getYear();
-    }
-
-    public static void main(String[] args) {
-        Date date1 = new Date(30,1,2001);
-        Date date2 = new Date(26,2,2001);
-        System.out.println(date1.after(date1));
     }
 }
