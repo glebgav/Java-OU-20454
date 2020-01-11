@@ -58,9 +58,4 @@ public class Ex13 {
             System.out.println(s);
         f(s.substring(1)); // send s.substring(1) to f
     }
-
-    public static void main(String[] args) {
-        int a=6,b=24;
-        System.out.println(generalGCD(a,b));
-    }
 }
