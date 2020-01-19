@@ -49,7 +49,7 @@ public class PolyNode {
     {
         this._power = p.getPower();
         this._coefficient = p.getCoefficient();
-        this._next = null;
+        this._next = p.getNext();
 
     }
 
@@ -91,7 +91,7 @@ public class PolyNode {
     }
 
     /**
-     * @return string representation of PolyNode object
+     * @return String representation of PolyNode object
      */
     public String toString()
     {
